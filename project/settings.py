@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt'
 
-TIME_ZONE = 'Brasilia'
+TIME_ZONE = 'UTC' #https://www.timeanddate.com/time/zones/africa
 
 USE_I18N = True
 
