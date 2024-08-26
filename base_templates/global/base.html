@@ -10,15 +10,34 @@
    <header class="header">
       <h1 class="header-heading">
          <a href="{% url "contact:index" %}" class="header-link">Agenda</a>
+         {% if user.is_authenticated %}
+         <p style="font-size: 16px;  color: rgb(179, 190, 197); font-weight: normal;">__ {{user.username}} __</p>
+         
+         {% endif %}
       </h1>
       <nav class="menu">
          <ul class="menu-list">
+
+            {% if user.is_authenticated %}
             <li class="menu-item">
-               <a href="#" class="menu-link">Link1</a>
+               <a href="{% url "contact:create" %}" class="menu-link">Create</a>
             </li>
             <li class="menu-item">
-               <a href="#" class="menu-link">Link2</a>
+               <a href="{% url "contact:user_update" %}" class="menu-link">Profile</a>
             </li>
+            <li class="menu-item">
+               <a href="{% url "contact:logout" %}" class="menu-link">Logout</a>
+            </li>
+            {% else %}
+             <li class="menu-item">
+               <a href="{% url "contact:login" %}" class="menu-link">Login</a>
+            </li>
+             <li class="menu-item">
+               <a href="{% url "contact:register" %}" class="menu-link">Register</a>
+            </li>
+            {% endif %}
+           
+            
          </ul>
       </nav>
       <div class="search">
@@ -28,6 +47,7 @@
       </div>
    </header>
   
+   {% include "global/partials/messages.html" %}
    <main class="content">
       {% block content %}
       {% endblock content %}

@@ -3,12 +3,13 @@ from django.http import Http404
 from django.db.models import Q
 from contact.models import Contact
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='contact:login')
 def index(request):
 
    #Criando paginacao--------------
-   contacts = Contact.objects.filter(show = True).order_by('-id')
+   contacts = Contact.objects.filter(show = True, owner = request.user).order_by('-id')
    #print(contacts.query)
    paginator = Paginator(contacts, 10)  # Show 25 contacts per page.
 
@@ -71,7 +72,8 @@ def contact(request,contact_id):
    
    context = {
       'contact': single_contact,
-      'site_title': site_title
+      'site_title': site_title,
+      
    }
 
    return render(

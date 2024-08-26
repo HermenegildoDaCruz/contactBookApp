@@ -1,10 +1,10 @@
 :root {
    --spacing: 1.5rem;
-   --link-dark-color: rgb(0, 83, 134);
-   --link-light-color: rgb(156, 217, 255);
+   --link-dark-color: rgba(10, 10, 17, 0.932);
+   --link-light-color: rgb(179, 190, 197);
    --clr-white: rgb(245, 245, 255);
-   --clr-black: rgb(0, 0, 30);
-   --clr-light-gray: rgb(230, 230, 245);
+   --clr-black: rgb(10, 10, 17);
+   --clr-light-gray: rgba(10, 10, 17, 0.479);
    --clr-dark-shadow-5: rgba(0, 0, 10, 5%);
    --clr-dark-shadow-10: rgba(0, 0, 10, 10%);
    --clr-dark-shadow-20: rgba(0, 0, 10, 20%);
@@ -13,7 +13,7 @@
    --clr-light-shadow-20: rgba(200, 200, 255, 20%);
    --main-page-width: 120rem;
    --table-min-width: 60rem;
-   --biggest-font-size: 5rem;
+   --biggest-font-size: 4rem;
    --bigger-font-size: 4rem;
    --big-font-size: 3.2rem;
    --medium-font-size: 2.4rem;
@@ -294,6 +294,12 @@ svg {
    font-size: var(--smaller-font-size);
 }
 
+.contact-links{
+   margin-block: calc(var(--small-font-size)*2);
+   display: flex;
+   align-items: center;
+   gap: 0 var(--spacing);
+}
 .btn {
    background-color: var(--link-dark-color);
    color: var(--clr-white);
@@ -303,6 +309,18 @@ svg {
    border-radius: var(--default-border-radius);
    cursor: pointer;
    transition: filter var(--transition-fast) ease-in-out;
+}
+.btn-link{
+   font-size: var(--small-font-size);
+   text-decoration: none;
+   font-weight: bold;
+   padding: 1rem;
+   display: block;
+   line-height: var(--small-font-size);
+}
+
+.btn-delete{
+   background-color: tomato;
 }
 
 .btn:hover {
