@@ -1,2 +1,2 @@
-# AGENDA-DE-CONTACTOS-DJANGO
- AGENDA DE CONTACTOS USANDO DJANGO
+# contactBookApp (Django & JavaScript) 
+ Save your contacts easily
